@@ -1,4 +1,17 @@
-.qtcreator
-/build/
-*.swp
-*.log
+# CMake
+build/
+cmake-build-*/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Compiled files
+*.exe
+*.obj
+*.pdb
+*.ilk
+
+# IDE
+.vscode/
