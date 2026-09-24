@@ -1,5 +1,5 @@
 #pragma once
-
+#include <cmath>
 #include "functemplate.h"
 
 class FuncGauss : public FuncTemplate<double> {
@@ -11,7 +11,7 @@ public:
         ;
     }
     // ctor copy
-    FuncGauss(FuncGauss const& other) : FuncTemplate<double>(std::ref(other)) {
+    FuncGauss(FuncGauss const& other) : FuncTemplate<double>(other) {
         ;
     }
     // ctor move
