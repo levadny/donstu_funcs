@@ -3,6 +3,7 @@
 #include <iomanip>
 #include "funcline.h"
 #include "funcfastosc.h"
+#include "funcquartic.h"
 
 int main() {
   std::cout << "Func test example" << std::endl;
@@ -36,6 +37,22 @@ int main() {
     auto res_osc = fastOsc.calcAll(-2.0, 0.2, 2.0);
     for(size_t i = 0; i < res_osc.size(); ++i){
         std::cout << "y(" << std::setw(4) << res_osc[i].first << ") = " << res_osc[i].second << std::endl;
+    }
+    std::cout << "\n--- Testing FuncQuartic ---" << std::endl;
+    // a = 1, b = 4, c = 4  →  y = x^4 - 4x² + 4
+    std::vector<double> k_quartic = {1.0, 4.0, 4.0};
+    FuncQuartic quartic(k_quartic);
+
+    std::cout << "Manual mode (FuncQuartic)" << std::endl;
+    for (double x = -3.0; x <= 3.0; x += 0.5) {
+        std::cout << "y(" << std::setw(4) << x << ") = " << quartic.calc(x) << std::endl;
+    }
+
+    std::cout << "All array mode (FuncQuartic)" << std::endl;
+    auto res_quartic = quartic.calcAll(-2.0, 0.25, 2.0);
+    for (size_t i = 0; i < res_quartic.size(); ++i) {
+        std::cout << "y(" << std::setw(4) << res_quartic[i].first << ") = "
+                  << res_quartic[i].second << std::endl;
     }
   return 0;
 }
