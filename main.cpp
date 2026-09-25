@@ -3,6 +3,9 @@
 #include <iomanip>
 #include "funcline.h"
 #include "funcfastosc.h"
+#include "funcarctan.h"
+#include <cassert>
+#include <cmath>
 
 int main() {
   std::cout << "Func test example" << std::endl;
@@ -37,5 +40,40 @@ int main() {
     for(size_t i = 0; i < res_osc.size(); ++i){
         std::cout << "y(" << std::setw(4) << res_osc[i].first << ") = " << res_osc[i].second << std::endl;
     }
+
+
+    // Тестирование функции арктангенса
+    std::cout << "\n--- Testing FuncArctan ---" << std::endl;
+
+    // Создаём объект с коэффициентами a = 1, b = 1
+    FuncArctan arctanFunc;
+
+    // Точность сравнения вещественных чисел
+    const double eps = 1e-10;
+    const double pi = std::acos(-1.0);
+
+    // Тест 1: arctan(0) = 0
+    assert(std::abs(arctanFunc.calc(0.0)) < eps);
+
+    // Тест 2: arctan(1) = pi / 4
+    assert(std::abs(arctanFunc.calc(1.0) - pi / 4.0) < eps);
+
+    // Тест 3: arctan(-1) = -pi / 4
+    assert(std::abs(arctanFunc.calc(-1.0) + pi / 4.0) < eps);
+
+    // Тест 4: вычисление нескольких значений
+    auto results = arctanFunc.calcAll(-1.0, 1.0, 2.0);
+
+    assert(results.size() == 3);
+
+    for (const auto& point : results) {
+        assert(
+            std::abs(
+                point.second - std::atan(point.first)
+            ) < eps
+        );
+    }
+
+    std::cout << "FuncArctan tests passed!" << std::endl;
   return 0;
 }
