@@ -3,6 +3,7 @@
 #include <iomanip>
 #include "funcline.h"
 #include "funcfastosc.h"
+#include "funcdamped.h"
 
 int main() {
   std::cout << "Func test example" << std::endl;
@@ -37,5 +38,8 @@ int main() {
     for(size_t i = 0; i < res_osc.size(); ++i){
         std::cout << "y(" << std::setw(4) << res_osc[i].first << ") = " << res_osc[i].second << std::endl;
     }
+FuncDamped func21(1.0, 1.0);
+double x = 0.5;
+std::cout << "y = " << func21.calculate(x) << " at x = " << x << std::endl;
   return 0;
 }
