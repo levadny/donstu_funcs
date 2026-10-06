@@ -1,0 +1,10 @@
+^C:\USERS\AKSI\DESKTOP\FUNCTIONLEV\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/AKSI/Desktop/FunctionLev -BC:/Users/AKSI/Desktop/FunctionLev/build --check-stamp-file C:/Users/AKSI/Desktop/FunctionLev/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
