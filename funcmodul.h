@@ -11,7 +11,7 @@ public:
 
   // ctor with params
   FuncModul(std::vector<double> koefs) : FuncTemplate<double>(koefs) {
-    ;
+    this->setTitle("Modul");
   }
 
   // calculate function

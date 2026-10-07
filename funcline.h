@@ -8,7 +8,7 @@ public:
   FuncLine() = delete;
   // ctor with params
   FuncLine(std::vector<double> koefs) : FuncTemplate<double>(koefs) {
-    ;
+    this->setTitle("Line");
   }
   // ctor copy
   FuncLine(FuncLine const &other) : FuncTemplate<double>(std::ref(other)) {

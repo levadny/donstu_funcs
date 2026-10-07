@@ -8,7 +8,7 @@ public:
   FuncGauss() = delete;
   // ctor with params
   FuncGauss(std::vector<double> koefs) : FuncTemplate<double>(koefs) {
-    ;
+    this->setTitle("Gauss");
   }
   // ctor copy
   FuncGauss(FuncGauss const& other) : FuncTemplate<double>(other) {
