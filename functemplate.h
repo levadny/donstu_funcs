@@ -1,14 +1,15 @@
 #pragma once
 
 #include <vector>
+#include <string>
 
 template<class T>
 class FuncTemplate {
 protected:
-
   // koefs
   std::vector<T> *m_koefs;
-
+  // title (name of function for showing)
+  std::string m_title;
 public:
 
   // ctor
@@ -78,5 +79,13 @@ public:
       x += xStep;
     }
     return res;
+  }
+
+  std::string getTitle() const {
+    return this->m_title;
+  }
+
+  void setTitle(std::string title) {
+    this->m_title = title;
   }
 };

@@ -21,10 +21,12 @@ public:
   // assignment copy
   FuncLine& operator=(FuncLine const &other) {
     FuncTemplate<double>::operator=(other);
+    return *this;
   }
   // assignment move
   FuncLine& operator=(FuncLine &&other) {
     FuncTemplate<double>::operator=(std::move(other));
+    return *this;
   }
   // dtor
   virtual ~FuncLine() {
