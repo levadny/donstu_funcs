@@ -1,4 +1,0 @@
-C:/Users/AKSI/Desktop/FunctionLev/build/CMakeFiles/math_funcs.dir
-C:/Users/AKSI/Desktop/FunctionLev/build/CMakeFiles/INSTALL.dir
-C:/Users/AKSI/Desktop/FunctionLev/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/AKSI/Desktop/FunctionLev/build/CMakeFiles/ZERO_CHECK.dir
