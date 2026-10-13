@@ -1,4 +1,4 @@
 .qtcreator
-/build/
+build/
 *.swp
 *.log

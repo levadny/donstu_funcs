@@ -5,8 +5,6 @@ project(math_funcs LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-
-
 add_executable(math_funcs main.cpp
     functemplate.h
     funcline.h
@@ -15,8 +13,8 @@ add_executable(math_funcs main.cpp
     funcquartic.h
     funcarctan.h
     funcmodul.h
+    funcstep.h
 )
-
 
 include(GNUInstallDirs)
 install(TARGETS math_funcs

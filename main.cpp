@@ -1,13 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+#include <cassert>
+#include <cmath>
 #include "funcline.h"
 #include "funcfastosc.h"
 #include "funcdamped.h"
 #include "funcquartic.h"
 #include "funcarctan.h"
-#include <cassert>
-#include <cmath>
+#include "funcstep.h"
 #include "funcmodul.h"
 
 
@@ -46,7 +47,7 @@ int main() {
     }
     // --- Testing FuncDamped ---
     std::cout << "\n--- Testing FuncDamped ---" << std::endl;
-    FuncDamped func21({1.0, 1.0})
+    FuncDamped func21({1.0, 1.0});
     double x = 0.5;
     std::cout << "y = " << func21.calc(x) << " at x = " << x << std::endl;
 
@@ -103,5 +104,28 @@ int main() {
         std::cout << "y(" << std::setw(4) << res_modul[i].first << ") = " << res_modul[i].second << std::endl;
     }
 
+    // Testing step function
+    std::cout << "\n--- Testing StepFunc ---" << std::endl;
+
+    std::vector<double> koefs = {1.0}; // a = 1
+    FuncStep step(koefs);
+
+    // Manual mode
+    std::cout << "Manual mode" << std::endl;
+    for (int i = -10; i < 10; ++i) {
+        std::cout << "y(" << std::setw(3) << i << ") = " << step.calc(i) << std::endl;
+    }
+
+    // Array mode
+    std::cout << "All array mode" << std::endl;
+    auto res_step = step.calcAll(-5.0, 0.5, 5.0);
+    for (size_t i = 0; i < res_step.size(); ++i) {
+        std::cout << "y(" << std::setw(5) << res_step[i].first << ") = "
+                  << res_step[i].second << std::endl;
+    }
+
   return 0;
 }
+
+
+
